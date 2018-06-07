@@ -5,3 +5,5 @@ commit 3
 
 commit 4(develop - commit 1)
 commit 5( develop - commit 2)
+commit 6
+commit 7
