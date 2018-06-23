@@ -1,0 +1,49 @@
+{
+  "name": "unit-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:ts-mocha": "ts-mocha ./src/specs/*.spec.ts",
+    "test:nyc": "nyc npm run test:ts-mocha"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include":[
+      "./src/app/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/index.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/node": "^10.3.4",
+    "intern": "^4.2.0",
+    "nyc": "^12.0.2",
+    "remap-istanbul": "^0.11.1",
+    "source-map-support": "^0.5.6",
+    "ts-mocha": "^1.2.0",
+    "ts-node": "^6.1.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "di-typescript": "^1.1.4",
+    "mocha": "^5.2.0",
+    "mocha-typescript": "^1.1.16",
+    "reflect-metadata": "^0.1.12"
+  }
+}
