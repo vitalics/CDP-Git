@@ -11,7 +11,7 @@ class BaseCalculatorTest {
   @Inject() public calculator!: Calculator;
 }
 
-@suite('multilplicity tests')
+@suite('calculator: multilplicity tests')
 class MulCalculatorTest extends BaseCalculatorTest {
 
   @test(`multiply ${multiplicityCase.actual}. Expected ${multiplicityCase.expected}`)
@@ -19,9 +19,14 @@ class MulCalculatorTest extends BaseCalculatorTest {
     const result = this.calculator.multiplicity(multiplicityCase.actual[0], multiplicityCase.actual[1]);
     expect(result).to.be.equal(multiplicityCase.expected);
   }
+  @test(`multiply ${multiplicityCase.actual}. Expected ${multiplicityCase.expected}`)
+  public negative(): void {
+    const result = this.calculator.multiplicity(multiplicityCase.actual[0], multiplicityCase.actual[1]);
+    expect(result).to.be.not.equal(multiplicityCase.expected + 1);
+  }
 }
 
-@suite('summing tests')
+@suite('calculator: summing tests')
 class SumCalculatorTest extends BaseCalculatorTest {
   @test(`sum ${sumCase.actual}. Expected ${sumCase.expected}`)
   public sum(): void {
