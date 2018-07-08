@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch app",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/src/app/calculator.ts"
+      ],
+      "cwd": "${cwd}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch test",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ts-mocha",
+      "runtimeArgs": [
+        "${workspaceFolder}/src/specs/calculator.spec.ts"
+      ],
+      "cwd": "${cwd}"
+    },
+  ],
+  "compounds": []
+}
