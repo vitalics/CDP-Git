@@ -1,0 +1,22 @@
+{
+  "name": "protractor",
+  "version": "1.0.0",
+  "main": "spec.js",
+  "dependencies": {
+    "protractor": "^5.1.0"
+  },
+  "scripts": {
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "jasmine": "^3.1.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}
