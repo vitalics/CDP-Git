@@ -18,22 +18,13 @@ function logTitle() {
 }
 
 
-function logQuestionTitle() {
-    browser.findElement(By.css("#question-header h1")).then(function (el) {
-        el.getText().then(function (text) {
-            console.log('Current Question Title: ' + text)
-        });
+function logRemainingBalance() {
+    browser.findElement(By.css(".main-heading")).then(async function (el) {
+        const text = await el.getText();
+        console.log(`text is ${text}`);
     });
 }
 
-function clickLink(link) {
-    link.click();
-}
-
-function handleFailure(err) {
-    console.error('Something went wrong\n', err.stack, '\n');
-    closeBrowser();
-}
 
 function findMostRelevant() {
     return browser.findElements(By.css('.result-link a')).then(function (result) {
@@ -41,12 +32,29 @@ function findMostRelevant() {
     });
 }
 
+function fillInfo() {
+    browser.findElement(By.id('employeeId')).then(result => result.sendKeys('Some employee'));
+    browser.findElement(By.xpath("//textarea[@name='comment']")).then(el => el.sendKeys('some comment here'))
+}
+function SaveAsDraft() {
+    browser.findElement(By.css('[title="Save as Draft"]')).then(result => result.click());
+}
 function closeBrowser() {
     browser.quit();
 }
 
 const elemIll = browser.findElement(By.css('#addIll'));
 const elemDraft = browser.findElement(By.xpath("//button[@id='draft']"));
-browser.get('https://vacation.epam.com').then(logTitle);
-browser.wait(elemIll).then(elem => elem.click());
-browser.wait(elemDraft).then(elem => elem.click());
+
+browser.get('https://vacation.epam.com'); // 1
+browser.then(logTitle); //2
+browser.then(logRemainingBalance); // 3
+
+browser.wait(elemIll).then(elem => elem.click()); //4 
+browser.wait(elemDraft).then(elem => elem.click()); //5 
+
+browser.then(fillInfo).then(SaveAsDraft);// 6
+
+browser.navigate().back(); // 7
+
+browser.navigate().to('https://vacation.epam.com'); // 8
