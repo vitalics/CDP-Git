@@ -1,0 +1,47 @@
+{
+  "name": "wdio-typescript-cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio ./wdio-configs/wdio.conf.js",
+    "doc:generate": "node ./node_modules/typedoc/bin/typedoc --options ./typedoc.js ./src",
+    "lint": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json --exclude ./capabilities/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "precommit": "npm run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cucumber": "^4.0.4",
+    "@types/node": "^10.0.9",
+    "@types/request-promise": "^4.1.41",
+    "@types/webdriverio": "^4.10.1",
+    "di-typescript": "^1.1.4",
+    "husky": "^0.14.3",
+    "tslint": "^5.10.0",
+    "typedoc": "^0.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cucumber": "2.3.1",
+    "cucumber-tsflow": "^2.2.0",
+    "google-auth-library": "^1.4.0",
+    "googleapis": "^30.0.0",
+    "reflect-metadata": "^0.1.12",
+    "request-promise": "^4.2.2",
+    "ts-node": "~5.0.1",
+    "tsconfig-paths": "^3.3.2",
+    "typescript": "^2.8.3",
+    "wdio-allure-reporter": "^0.6.1",
+    "wdio-cucumber-framework": "1.0.2",
+    "wdio-cucumber-reporter": "0.0.2",
+    "wdio-json-reporter": "^0.3.1",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.4",
+    "wdio-typescript-service": "0.0.3",
+    "webdrivercss": "^1.1.10",
+    "webdriverio": "^4.12.0"
+  }
+}

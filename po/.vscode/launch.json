@@ -1,0 +1,54 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch All Tests",
+      "program": "${workspaceFolder}/node_modules/webdriverio/bin/wdio",
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "args": [
+        "${workspaceFolder}/wdio-configs/wdio.conf.js",
+      ],
+      "autoAttachChildProcesses": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Specific Tests",
+      "program": "${workspaceFolder}/node_modules/webdriverio/bin/wdio",
+      "args": [
+        "${workspaceFolder}/wdio-configs/wdio.conf.js",
+        "${workspaceFolder}/src/features/account/signup-desktop.feature"
+      ],
+      "smartStep": true,
+      "internalConsoleOptions": "openOnSessionStart",
+      "stopOnEntry": true,
+      "autoAttachChildProcesses": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch current ts file",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register",
+        "${workspaceFolder}/${relativeFile}"
+      ],
+      "outFiles": [
+        "dist"
+      ],
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 5860
+    }
+  ],
+  "compounds": []
+}
