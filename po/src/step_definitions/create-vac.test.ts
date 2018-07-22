@@ -40,10 +40,18 @@ class MyFirstSteps extends BaseTest {
       // fail test
       throw new Error();
     }
+    browser.scroll(this.vacPage.form.employee.selector).click();
+    browser.execute(() => alert('clicked!'));
   }
 
   @then(/^User click on "(.*)" button$/)
   public clickToDraftButton(buttonName: string): void {
-    this.vacPage.form.draftButton.click();
+    browser.execute(() => {
+      const color = this.vacPage.form.draftButton.getCssProperty('background-color').value;
+      const elem = document.querySelector(this.vacPage.form.draftButton.getAttribute('id'));
+      elem!.setAttribute('background-color', 'red');
+      this.vacPage.form.draftButton.click();
+      elem!.setAttribute('background-color', color);
+    });
   }
 }
