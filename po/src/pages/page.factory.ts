@@ -18,7 +18,7 @@ export class PageFactory {
    * getting page instance by one of reserved name, if page cannot found - getting Error
    * @param pageName name of the getting page
    */
-  public getPage<T = PageLike>(pageName: string): HomePage | T {
+  public getPage<T extends Page>(pageName: string): HomePage | T {
     switch (pageName) {
       case Pages.Home:
         return new HomePage();

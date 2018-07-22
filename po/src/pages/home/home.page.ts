@@ -1,8 +1,9 @@
-import { HeaderComponent } from 'components';
 import { Page } from 'pages';
-import { driver, Injectable } from 'utils';
+import { Injectable } from 'utils';
 
-import { component, page, postcondition, precondition, safe } from 'utils/decorators';
+import { HeaderComponent } from 'components';
+import { Class, Elem } from 'types';
+import { component, element, page } from 'utils/decorators';
 
 /**
  * Home page is entry point of application:
@@ -13,19 +14,6 @@ import { component, page, postcondition, precondition, safe } from 'utils/decora
 @Injectable()
 @page({ url: '/' })
 export class HomePage extends Page {
-
-    @component('header.d-headerView')
-    public readonly header!: HeaderComponent;
-
-    @safe()
-    public unsafemethod(arg: any): boolean {
-        return arg.length > 0;
-    }
-
-    @precondition()
-    @postcondition(() => driver.wait)
-    public clickToSignUpButton(): void {
-        // driver.clickTo(this.header.signUpButton);
-        this.unsafemethod(null);
-    }
+    @component('.menu-padding') public readonly headerComponent!: HeaderComponent;
+    @element('#addVac') public readonly vacButton!: Elem;
 }

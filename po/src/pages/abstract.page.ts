@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 
-import { Injectable } from 'utils';
+import { Class, Openable, PageLike } from 'types';
+import { inject, Injectable } from 'utils';
 import { page } from 'utils/decorators';
 import { Client, RawResult } from 'webdriverio';
 
@@ -9,7 +10,7 @@ import { Client, RawResult } from 'webdriverio';
  */
 @Injectable()
 @page({ url: 'https://vacation.epam.com' })
-export abstract class Page {
+export abstract class Page implements Openable {
   /**
    * title of page
    */
@@ -29,6 +30,12 @@ export abstract class Page {
     this.url = Reflect.getMetadata(`page_${thisProto.constructor}`, thisProto.constructor).url;
   }
 
+  public static define<T extends Page>(p?: PageLike): T | Page {
+    if (typeof p === 'undefined') {
+      throw new Error('page is not defined');
+    }
+    return inject.get(p) as T;
+  }
   /**
    * open page with defined url or custom url
    * @param url url witch will be opened
@@ -48,4 +55,8 @@ export abstract class Page {
       return state.value === 'complete';
     });
   }
+  public cast<T extends Page>(p: PageLike<T>): T {
+    return inject.get(p);
+  }
+
 }
