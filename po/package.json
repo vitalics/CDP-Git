@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/wdio ./wdio-configs/wdio.conf.js",
+    "postinstall": "npm i selenium-standalone -g",
+    "start:grid": "selenium-standalone start — -role node -hub http://localhost:4444/grid/register -browser “browserName=chrome,maxInstances=5”",
     "doc:generate": "node ./node_modules/typedoc/bin/typedoc --options ./typedoc.js ./src",
     "lint": "./node_modules/.bin/tslint -c ./tslint.json -p ./tsconfig.json --exclude ./capabilities/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
