@@ -1,6 +1,6 @@
 # PO
 
-- [x] Layers
+- [x] Layers (Pages, Components, utils, constants)
 - [x] Multicapabilities
 - [x] Page objects
 - [x] Components structure

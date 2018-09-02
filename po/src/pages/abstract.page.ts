@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { Class, Openable, PageLike } from 'types';
+import { Openable, PageLike } from 'types';
 import { inject, Injectable } from 'utils';
 import { page } from 'utils/decorators';
 import { Client, RawResult } from 'webdriverio';
