@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { Openable, PageLike } from 'types';
 import { inject, Injectable } from 'utils';
 import { page } from 'utils/decorators';
+import { timerify } from 'utils/measure';
 import { Client, RawResult } from 'webdriverio';
 
 /**
@@ -40,6 +41,7 @@ export abstract class Page implements Openable {
    * open page with defined url or custom url
    * @param url url witch will be opened
    */
+  @timerify()
   public open(url: string = this.url): void {
     browser.pause(1000);
     browser.url(`${url}`);

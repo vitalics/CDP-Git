@@ -22,6 +22,7 @@
     "@types/webdriverio": "^4.10.1",
     "di-typescript": "^1.1.4",
     "husky": "^0.14.3",
+    "measured-core": "^1.11.2",
     "tslint": "^5.10.0",
     "typedoc": "^0.11.1"
   },
