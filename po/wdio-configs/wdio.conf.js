@@ -88,7 +88,7 @@ exports.config = {
 
   cucumberOpts: {
     require: [
-      path.resolve(process.cwd(), './src/step_definitions/index.ts'),
+      path.resolve(process.cwd(), './src/step_definitions/create-vac.test.ts'),
       // path.resolve(process.cwd(), './src/step_definitions/gmail-page-steps.js'),
       // path.resolve(process.cwd(), './src/step_definitions/common-page-steps.js'),
       // path.resolve(process.cwd(), './src/step_definitions/participation-page-steps.js'),
