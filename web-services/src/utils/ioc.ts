@@ -11,19 +11,11 @@ export function Injectable(): ClassDecorator {
   };
 }
 
-export function Inject(...args: any[]): PropertyDecorator {
+export function Inject(): PropertyDecorator {
   return (target, key) => {
-    let instance: any;
     const type = Reflect.getMetadata('design:type', target, key);
-
-    if (args.length) {
-      instance = Reflect.construct(type, args);
-    } else {
-      instance = injector.get(type);
-    }
-
     Reflect.defineProperty(target, key, {
-      get: () => instance,
+      get: () => injector.get(type),
     });
   };
 }

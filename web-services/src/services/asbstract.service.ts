@@ -1,5 +1,8 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+import { Injectable } from 'utils';
+
+@Injectable()
 export class Service {
 
   public constructor(

@@ -3,7 +3,6 @@ import { suite, test } from 'mocha-typescript';
 
 import { globalConstants } from 'utils/constants';
 import { Inject } from 'utils/ioc';
-import { runParallel } from 'utils/parallel';
 import { UserService } from 'services';
 import { HttpStatusCode, HttpHeaders, ContentTypes } from 'models/http';
 
@@ -15,7 +14,6 @@ class VerifyUsersTest {
   @test('verify an http status code')
   public async checkUsersStatusCode() {
     const allUsersResponse = await this.userService.getAllUsers();
-    const users = allUsersResponse.data;
 
     expect(allUsersResponse.status).equals(HttpStatusCode.OK);
   }

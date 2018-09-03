@@ -1,0 +1,18 @@
+{
+    "files.exclude": {
+        "**/node_modules/": true
+    },
+    "search.exclude": {
+        "out": true,
+        "**/node_modules/": true
+    },
+    "mocha.enabled": true,
+    "mocha.sourceDir": "src/specs",
+    "mocha.outputDir": ".output",
+    "mocha.requires": [
+        "ts-node/register",
+        "tsconfig-paths/register"
+    ],
+    "mocha.files.glob": "specs/*.spec.ts",
+    "mocha.path": "./node_modules/mocha",
+}
