@@ -1,0 +1,32 @@
+{
+  "name": "web-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha-parallel-tests -r ts-node/register -r tsconfig-paths/register ./src/specs/**/*.spec.ts -p ./tsconfig.json --paths"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "chai": "^4.1.2",
+    "mocha-typescript": "^1.1.17",
+    "ts-mocha": "^2.0.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "di-typescript": "^1.1.4",
+    "mocha": "^5.2.0",
+    "mocha-parallel-tests": "^2.0.4",
+    "reflect-metadata": "^0.1.12",
+    "sync-request": "^6.0.0",
+    "tsconfig-paths": "^3.5.0"
+  }
+}

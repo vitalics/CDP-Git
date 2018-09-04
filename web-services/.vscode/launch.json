@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch current ts test file",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/mocha-parallel-tests",
+      "args": [
+        "--colors",
+        "--require",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register",
+        "${workspaceFolder}/src/specs/**/*.spec.ts",
+        "-p",
+        "${workspaceFolder}/tsconfig.json",
+        "--paths"
+      ],
+      "preLaunchTask": "tsc",
+      "cwd": "${workspaceRoot}",
+    }
+  ],
+  "compounds": []
+}
