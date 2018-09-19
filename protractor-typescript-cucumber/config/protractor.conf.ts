@@ -27,7 +27,7 @@ export let config: Config = {
 
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
-    seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+    // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
 
     // This utility function helps prepare our scripts with required actions like browser maximize
     onPrepare: () => {

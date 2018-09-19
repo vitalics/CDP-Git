@@ -1,9 +1,12 @@
-import { browser, ElementFinder } from 'protractor';
-import { components } from '../utils/protractor';
+import { browser, ElementArrayFinder } from 'protractor';
+import { components, elements } from '../utils/protractor';
 import { Component } from './abstract.component';
 import { HeaderItemComponent } from './headerItem.component';
 
+import { listen } from '../utils/logger/listen.decorator';
+
 export class HeaderComponent extends Component {
-    @components('.top-navigation__row .top-navigation__item', HeaderItemComponent, 3)
-    public readonly items!: HeaderItemComponent[];
+    @listen()
+    @elements('.top-navigation__row .top-navigation__item')
+    public readonly items!: ElementArrayFinder;
 }

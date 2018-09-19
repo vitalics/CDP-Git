@@ -3,6 +3,7 @@ import { browser } from 'protractor';
 
 import { binding, given, then } from 'cucumber-tsflow';
 import { HomePage } from '../pages/home.page';
+import { Logger } from '../utils/logger/logger';
 
 @binding()
 class Temp {
@@ -11,24 +12,19 @@ class Temp {
         this.home.open();
     }
 
-    @given(/^User open home page$/)
+    @given(/^User open "home" page$/)
     public async someMethod(): Promise<void> {
         expect(await browser.getTitle()).equal('EPAM | Software Product Development Services');
     }
 
-    @given(/^User click by "([^"]*)"$/)
+    @given(/^User click by "([^"]*)" text button$/)
     public async clickByMenuItem(menuItemName: string): Promise<void> {
-        const items = this.home.header.items;
-        const texts = await Promise.all(items.map((i) => i.info.getText()));
-
-        const itemIndex = texts.findIndex((t) => t === menuItemName);
-
-        if (itemIndex >= 0) {
-            await items[itemIndex].info.click();
-        }
+        const items = this.home.header.$$('.top-navigation__row .top-navigation__item');
+        const texts = Promise.all([items.map((i) => i.$('.top-navigation__item-link').getText())]);
+        console.dir(texts);
     }
 
-    @then(/^Route change by "([^"]*)"$/)
+    @then(/^Route change by "([^"]*)" routing$/)
     public async isRouteChanged(routing: string): Promise<void> {
         const current = await browser.getCurrentUrl();
 
