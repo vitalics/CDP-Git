@@ -1,7 +1,7 @@
 import { Injectable } from 'utils/ioc';
 import { Service } from './asbstract.service';
 import { User } from 'models';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class UserService extends Service {
